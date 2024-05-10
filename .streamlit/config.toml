@@ -1,0 +1,16 @@
+[logger]
+level = "debug"
+
+[client]
+showErrorDetails = false
+toolbarMode = "viewer"
+
+[server]
+fileWatcherType = "none"
+
+[theme]
+base = "light"
+primaryColor = "#A100FF"
+backgroundColor = "#FAFAFA"
+font = "monospace"
+

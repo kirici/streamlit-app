@@ -6,6 +6,8 @@ COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
+COPY .streamlit/ .streamlit/
+
 COPY main.py main.py
 
 CMD ["streamlit", "run", "main.py"]
