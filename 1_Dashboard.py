@@ -1,6 +1,8 @@
 """
 A sample streamlit application.
 """
+from time import sleep
+
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -26,6 +28,20 @@ def init_data() -> pd.DataFrame:
     return chart_data
 
 
+def drink(key: str):
+    del st.session_state[key]
+
+
+def orders():
+    st.markdown("## Beverages")
+    for key in st.session_state.keys():
+        if st.button(key, type="primary"):
+            drink(key)
+            st.info("Grabbed "+key)
+            sleep(1.5)
+            st.rerun()
+
+
 def render(df=pd.DataFrame):
     st.line_chart(df)
 
@@ -35,3 +51,4 @@ def render(df=pd.DataFrame):
 
 page_dressing()
 render(df=init_data())
+orders()
