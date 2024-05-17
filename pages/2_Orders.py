@@ -20,7 +20,9 @@ def coffee_order():
     latest_iteration = st.empty()
     bar = st.progress(0)
     for i in range(100):
-        latest_iteration.text(f'{i+1} ml coffee extracted')
+        # ml per percent for an espresso
+        c = (i+1)/4
+        latest_iteration.text(f'{int(c)} ml coffee extracted')
         bar.progress(i + 1)
         time.sleep(0.1)
 
