@@ -8,8 +8,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY .streamlit/ .streamlit/
 
-COPY main.py main.py
 
+COPY 1_Dashboard.py 1_Dashboard.py
 EXPOSE 8501
 
-CMD ["streamlit", "run", "main.py"]
+CMD ["streamlit", "run", "1_Dashboard.py"]

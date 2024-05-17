@@ -5,6 +5,18 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
+st.set_page_config(
+    page_title="Sample",
+    page_icon="🔥",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+
+def page_dressing():
+    st.title('Hello World')
+    st.sidebar.markdown("# Dashboard")
+
 
 def init_data() -> pd.DataFrame:
     chart_data = pd.DataFrame(
@@ -14,12 +26,11 @@ def init_data() -> pd.DataFrame:
 
 
 def render(df=pd.DataFrame):
-    st.title('Hello World')
     st.line_chart(df)
 
     x = st.slider('x')
     st.write(x, 'squared is', x * x)
 
 
-d = init_data()
-render(df=d)
+page_dressing()
+render(df=init_data())
