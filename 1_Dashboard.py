@@ -37,7 +37,7 @@ def drink(key: str):
     del st.session_state.orders[key]
 
 
-def orders():
+def display_orders():
     st.markdown("## Beverages")
     for key in st.session_state.orders.keys():
         if st.button(key, type="primary"):
@@ -47,7 +47,7 @@ def orders():
             st.rerun()
 
 
-def render(df=pd.DataFrame):
+def display_sample_widgets(df=pd.DataFrame):
     st.line_chart(df)
 
     x = st.slider('x')
@@ -56,5 +56,5 @@ def render(df=pd.DataFrame):
 
 page_dressing()
 init_state()
-render(df=init_data())
-orders()
+display_sample_widgets(df=init_data())
+display_orders()
