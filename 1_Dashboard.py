@@ -20,6 +20,11 @@ def page_dressing():
     st.sidebar.markdown("# Dashboard")
 
 
+def init_state():
+    if "orders" not in st.session_state:
+        st.session_state.orders = {}
+
+
 @st.cache_data
 def init_data() -> pd.DataFrame:
     chart_data = pd.DataFrame(
@@ -29,12 +34,12 @@ def init_data() -> pd.DataFrame:
 
 
 def drink(key: str):
-    del st.session_state[key]
+    del st.session_state.orders[key]
 
 
 def orders():
     st.markdown("## Beverages")
-    for key in st.session_state.keys():
+    for key in st.session_state.orders.keys():
         if st.button(key, type="primary"):
             drink(key)
             st.info("Grabbed "+key)
@@ -50,5 +55,6 @@ def render(df=pd.DataFrame):
 
 
 page_dressing()
+init_state()
 render(df=init_data())
 orders()
