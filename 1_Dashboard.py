@@ -18,6 +18,7 @@ def page_dressing():
     st.sidebar.markdown("# Dashboard")
 
 
+@st.cache_data
 def init_data() -> pd.DataFrame:
     chart_data = pd.DataFrame(
         np.random.randn(20, 3),
