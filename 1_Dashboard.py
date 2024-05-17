@@ -42,7 +42,7 @@ def orders():
     for key in st.session_state.orders.keys():
         if st.button(key, type="primary"):
             drink(key)
-            st.info("Grabbed "+key)
+            st.info("Grabbed " + key)
             sleep(1.5)
             st.rerun()
 

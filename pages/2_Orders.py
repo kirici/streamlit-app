@@ -26,11 +26,11 @@ def coffee_order(drink: str):
     bar = st.progress(0)
     for i in range(100):
         # ml per percent for an espresso
-        c = (i+1)/4
+        c = (i + 1) / 4
         latest_iteration.text(f'{int(c)} ml coffee extracted')
         bar.progress(i + 1)
         time.sleep(0.1)
-    st.success("One "+drink+" ready to go!")
+    st.success("One " + drink + " ready to go!")
     st.session_state.orders[drink] = ''
     st.write(st.session_state.orders[drink])
 
