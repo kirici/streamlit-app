@@ -38,13 +38,24 @@ def drink(key: str):
 
 
 def display_orders():
-    st.markdown("## Beverages")
+    st.markdown("---")
+    st.markdown("# Ready for pick-up")
+    cols = st.columns([4, 1])
+    fields = ["Order", "Action"]
+    # headers
+    for col, field_name in zip(cols, fields):
+        col.markdown("#### " + field_name)
+    # entry rows
     for key in st.session_state.orders.keys():
-        if st.button(key, type="primary"):
+        st.markdown("---")
+        col1, col2 = st.columns([4, 1])
+        col1.write(key)
+        if col2.button("get", type="primary"):
             drink(key)
             st.info("Grabbed " + key)
             sleep(1.5)
             st.rerun()
+    st.markdown("---")
 
 
 def display_sample_widgets(df=pd.DataFrame):

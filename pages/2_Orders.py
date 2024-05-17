@@ -38,4 +38,4 @@ def coffee_order(drink: str):
 page_dressing()
 init_state()
 if st.button("Espresso", type="primary"):
-    coffee_order(drink="espresso")
+    coffee_order(drink="Espresso")
